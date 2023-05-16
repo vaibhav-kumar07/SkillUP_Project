@@ -1,12 +1,12 @@
 @baseUrl=http://localhost:3005
 
 ###use camelCase convention for creating new user
-POST {{baseUrl}}/user/signup
+POST {{baseUrl}}/user/signUp
 Content-Type: application/json
 
 {
-    "userName":"ashwani",
+    "userName":"ankit",
     "password":"1234567",
-    "email":"ashwanigupta@gmail1.com",
+    "email":"ankit@gmail1.com",
     "role":"Admin"
 }
