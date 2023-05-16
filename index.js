@@ -8,6 +8,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 dbUtils.initDB();
 
+app.use("/", () => {
+  console.log("hello world");
+});
 process.on("SIGINT", () => {
   dbUtils.disconnectDB();
   console.log("Closing server");
