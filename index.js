@@ -4,9 +4,11 @@ const dbUtils = require("./dbutils/dbutil");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+const auth_router = require("./routes/auth_route");
 app.use(express.json());
 dbUtils.initDB();
+
+app.use("/user", auth_router);
 
 app.use("/", () => {
   console.log("hello world");
