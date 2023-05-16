@@ -34,6 +34,7 @@ const UserSchema = new mongoose.Schema({
   },
   phoneNumber: {
     type: Number,
+    required: true,
     trim: true,
     minlength: 10,
     maxlength: 10,

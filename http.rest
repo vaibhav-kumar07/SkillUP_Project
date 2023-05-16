@@ -1,12 +1,29 @@
-@baseUrl=http://localhost:3005
+@baseUrl=http://localhost:3001
 
 ###use camelCase convention for creating new user
 POST {{baseUrl}}/user/signUp
 Content-Type: application/json
+    
+{
+    "userName":"ankit012345678",
+    "password":"1234567",
+    "email":"ankit@gmail123456789.com",
+    "role":"Admin",
+    "phoneNumber":8826891859
+}
+
+### user login and verify via otp for the first time to make user active###
+###
+POST {{baseUrl}}/user/login
+Content-Type: application/json
 
 {
-    "userName":"ankit",
     "password":"1234567",
-    "email":"ankit@gmail1.com",
-    "role":"Admin"
+    "email":"ankit@gmail123456789.com",
+    "otp":741363
 }
+
+### login via token ###
+###
+POST {{baseUrl}}/user/login/token
+Authorization: bearer eyJhbGciOiJIUzI1NiJ9.YW5raXRAZ21haWwxMjM0NTY3ODkuY29t.WyLz8dcX0E6Vw3h940FJTJymqG6SqalCdPKkG3JrBY4
