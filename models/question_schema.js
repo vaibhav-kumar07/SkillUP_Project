@@ -24,7 +24,7 @@ const questionSchema = new mongoose.Schema({
     enum: [],
     validate: {
       validator: function (v) {
-        return this.options.includes(v);
+        return this.Options.includes(v);
       },
       message: "Answer must be one of the options",
     },
