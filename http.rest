@@ -1,13 +1,14 @@
-@baseUrl=http://localhost:3001
+
+@baseUrl=http://localhost:3005
 
 ###use camelCase convention for creating new user
 POST {{baseUrl}}/user/signUp
 Content-Type: application/json
     
 {
-    "userName":"ankit012345678",
+    "userName":"ankit",
     "password":"1234567",
-    "email":"ankit@gmail123456789.com",
+    "email":"ankit@gmail.com",
     "role":"Admin",
     "phoneNumber":8826891859
 }
@@ -29,3 +30,13 @@ Content-Type: application/json
 ###
 POST {{baseUrl}}/user/login/token
 Authorization: bearer 
+POST http://localhost:3005/api/createQuestion?_id=64637adb064052c62944fdf9
+content-type: application/json
+
+{
+    "Title":" the javascript question here is ",
+    "Options":["a","b","c","d"],
+    "Answer":"a",
+    "Type":"medium"
+}
+

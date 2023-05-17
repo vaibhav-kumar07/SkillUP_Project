@@ -38,6 +38,7 @@ const UserSchema = new mongoose.Schema({
     trim: true,
     min: 1000000000,
     max: 9999999999,
+
   },
   isActive: {
     type: Boolean,
