@@ -3,6 +3,7 @@ const User = require("../models/user_schema");
 
 exports.createQuestion = async (_id, Title, Options, Answer, Type) => {
   await verifyUser(_id);
+  console.log(_id);
   console.log(`in queston creation`);
   const ques = new Question({ Title, Options, Answer, Type });
   await ques.save();

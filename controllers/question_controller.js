@@ -1,13 +1,11 @@
 const service = require("../services/question_service");
-const question = require("../models/question_schema");
-const User = require("../models/user_schema");
 
 exports.createQuestion = async (req, res) => {
   console.log("question created here");
   try {
     const { Title, Options, Answer, Type } = req.body;
     const { _id } = req.query;
-    await service.createQuestion(_id, Title, Options, Answer, Type);
+    await service.createQuestion({ _id, Title, Options, Answer, Type });
     res.status(200).send({ msg: "question Added in question bank" });
   } catch (error) {
     console.log("error during question Creation :", error);

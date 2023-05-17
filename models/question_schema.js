@@ -1,13 +1,13 @@
 const { default: mongoose } = require("mongoose");
 
 const questionSchema = new mongoose.Schema({
-  title: {
+  Title: {
     type: String,
     trim: true,
     required: true,
     maxlength: 500,
   },
-  options: {
+  Options: {
     type: [String],
     trim: true,
     required: true,
@@ -18,7 +18,7 @@ const questionSchema = new mongoose.Schema({
       return: { message: "Array must have a length of 4" },
     },
   },
-  answer: {
+  Answer: {
     type: String,
     required: true,
     enum: [],
@@ -29,7 +29,7 @@ const questionSchema = new mongoose.Schema({
       message: "Answer must be one of the options",
     },
   },
-  type: {
+  Type: {
     type: String,
     trim: true,
     required: true,
