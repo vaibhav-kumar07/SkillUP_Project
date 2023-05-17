@@ -1,7 +1,7 @@
 const service = require("../services/question_service");
-const question = require("../models/question_schema");
+// const question = require("../models/question_schema");
 
-exports.deleteQuestion = async (req, res) => {
+const deleteQuestion = async (req, res) => {
   try {
     // const userid = req.body;
     // console.log(userid);
@@ -15,14 +15,22 @@ exports.deleteQuestion = async (req, res) => {
   }
 };
 
-exports.UpdateQuestion = async (req, res) => {
+const UpdateQuestion = async (req, res) => {
   try {
-    const questionid = req.params.id;
-    const questionBody = req.body;
-    const question = await service.updateQuestion(questionid, questionBody);
-    res.send(question);
+    const questionid = req.params.quesId;
+    const userId = req.params.userId;
+    const { Title, Answer } = req.body;
+    const question = await service.updateQuestion(questionid, {
+      Title,
+      Answer,
+      userId,
+      questionid,
+    });
+    res.status(200).send(question);
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Server error");
+    // console.error(error);
+    res.status(400).send({ message: error.message });
   }
 };
+
+module.exports = { deleteQuestion, UpdateQuestion };

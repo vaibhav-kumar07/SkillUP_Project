@@ -1,0 +1,22 @@
+@baseUrl=http://localhost:3005
+
+###use camelCase convention for creating new user
+POST {{baseUrl}}/user/signUp
+Content-Type: application/json
+
+{
+    "userName":"ankit",
+    "password":"1234567",
+    "email":"ankit@gmail1.com",
+    "role":"Admin"
+}
+
+###
+PUT {{baseUrl}}/question/updateQuestion/64647d70c0560ecd65d9771e/64637adb064052c62944fdf4
+Content-Type: application/json
+
+{
+    "Title":"lk",
+    "Answer":"hh"
+     "user":"64637adb064052c62944fdf4"
+}

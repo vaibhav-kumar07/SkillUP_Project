@@ -5,7 +5,8 @@ const {
   UpdateQuestion,
 } = require("../controllers/question_controller");
 
+// router.use(express.json());
 router.route("/removeQuestion").delete(deleteQuestion);
-router.route("/updateQuestion/:id").put(UpdateQuestion);
+router.route("/updateQuestion/:quesId/:userId").put(UpdateQuestion);
 
 module.exports = router;
