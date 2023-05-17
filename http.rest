@@ -4,10 +4,56 @@
 POST {{baseUrl}}/user/signUp
 Content-Type: application/json
 
+
 {
-    "userName":"vinay",
+    "userName":"ankit",
     "password":"1234567",
-    "email":"vinay@gmail1.com",
-    "role":"Solver",
-    "phoneNumber":8930485009
+    "email":"ankit@gmail1.com",
+    "role":"Admin"
+}
+
+###
+PUT {{baseUrl}}/question/updateQuestion/64647d70c0560ecd65d9771e/64637adb064052c62944fdf4
+Content-Type: application/json
+
+{
+    "Title":"lk",
+    "Answer":"hh"
+     "user":"64637adb064052c62944fdf4"
+}
+
+    
+{
+    "userName":"ankit",
+    "password":"1234567",
+    "email":"ankit@gmail.com",
+    "role":"Admin",
+    "phoneNumber":8826891859
+}
+
+### user login and verify via otp for the first time to make user active###
+###
+POST {{baseUrl}}/user/login
+Content-Type: application/json
+
+{
+
+    "password":"1234567",
+    "email":"ankit@gmail123456789.com",
+    "otp":741363
+
+}
+
+### login via token ###
+###
+POST {{baseUrl}}/user/login/token
+Authorization: bearer 
+POST http://localhost:3005/api/createQuestion?_id=64637adb064052c62944fdf9
+content-type: application/json
+
+{
+    "Title":" the javascript question here is ",
+    "Options":["a","b","c","d"],
+    "Answer":"a",
+    "Type":"medium"
 }
