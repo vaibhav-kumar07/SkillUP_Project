@@ -1,5 +1,7 @@
 const { default: mongoose } = require("mongoose");
 
+const User = require("../models/user_schema");
+
 const questionSchema = new mongoose.Schema({
   Title: {
     type: String,
@@ -24,7 +26,7 @@ const questionSchema = new mongoose.Schema({
     enum: [],
     validate: {
       validator: function (v) {
-        return this.options.includes(v);
+        return this.Options.includes(v);
       },
       message: "Answer must be one of the options",
     },

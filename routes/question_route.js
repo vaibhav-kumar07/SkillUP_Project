@@ -9,5 +9,5 @@ const {
 router.use(express.json());
 
 router.route("/createQuestion").post(createQuestion);
-router.route("/getQuestion").post(getQuestion);
+router.route("/getQuestion").get(getQuestion);
 module.exports = router;
