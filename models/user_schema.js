@@ -35,8 +35,8 @@ const UserSchema = new mongoose.Schema({
   phoneNumber: {
     type: Number,
     trim: true,
-    minlength: 10,
-    maxlength: 10,
+    min: 1000000000,
+    max: 9999999999,
   },
   isActive: {
     type: Boolean,

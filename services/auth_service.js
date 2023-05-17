@@ -14,6 +14,6 @@ exports.createNewUser = async function (
     const user_id = result._id;
     return user_id;
   } catch (error) {
-    throw { message: `user cannot be created${error.message}` };
+    throw { message: `user cannot be created :-${error.message}` };
   }
 };
