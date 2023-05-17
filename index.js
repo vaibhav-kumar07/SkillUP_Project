@@ -1,9 +1,12 @@
 const express = require("express");
 require("dotenv").config();
+const quesRoute = require("./routes/question_route");
 const dbUtils = require("./dbutils/dbutil");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use("/api/", quesRoute);
 
 app.use(express.json());
 dbUtils.initDB();

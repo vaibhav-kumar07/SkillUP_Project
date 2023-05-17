@@ -1,0 +1,9 @@
+POST http://localhost:3005/api/createQuestion?_id=64637adb064052c62944fdf9
+content-type: application/json
+
+{
+    "title":" the javascript question here is ",
+    "options":["a","b","c","d"],
+    "answer":"a",
+    "type":"medium"
+}
