@@ -4,6 +4,7 @@
 POST {{baseUrl}}/user/signUp
 Content-Type: application/json
 
+
 {
     "userName":"ankit",
     "password":"1234567",
@@ -19,4 +20,40 @@ Content-Type: application/json
     "Title":"lk",
     "Answer":"hh"
      "user":"64637adb064052c62944fdf4"
+}
+
+    
+{
+    "userName":"ankit",
+    "password":"1234567",
+    "email":"ankit@gmail.com",
+    "role":"Admin",
+    "phoneNumber":8826891859
+}
+
+### user login and verify via otp for the first time to make user active###
+###
+POST {{baseUrl}}/user/login
+Content-Type: application/json
+
+{
+
+    "password":"1234567",
+    "email":"ankit@gmail123456789.com",
+    "otp":741363
+
+}
+
+### login via token ###
+###
+POST {{baseUrl}}/user/login/token
+Authorization: bearer 
+POST http://localhost:3005/api/createQuestion?_id=64637adb064052c62944fdf9
+content-type: application/json
+
+{
+    "Title":" the javascript question here is ",
+    "Options":["a","b","c","d"],
+    "Answer":"a",
+    "Type":"medium"
 }

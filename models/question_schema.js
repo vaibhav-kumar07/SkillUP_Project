@@ -1,13 +1,16 @@
 const { default: mongoose } = require("mongoose");
 
 const questionSchema = new mongoose.Schema({
-  title: {
+  Title:{
     type: String,
     trim: true,
     required: true,
     maxlength: 500,
   },
-  options: {
+
+
+  Options: {
+
     type: [String],
     trim: true,
     required: true,
@@ -18,17 +21,24 @@ const questionSchema = new mongoose.Schema({
       return: { message: "Array must have a length of 4" },
     },
   },
-  answer: {
+
+  
+  Answer: {
     type: String,
     required: true,
     enum: [],
     validate: {
       validator: function (v) {
+
         return this.options.includes(v);
+
+        return this.Options.includes(v);
+
       },
       message: "Answer must be one of the options",
     },
   },
+
   type: {
     type: String,
     trim: true,
@@ -36,6 +46,12 @@ const questionSchema = new mongoose.Schema({
     lowercase: true,
     enum: ["easy", "medium", "hard"],
   },
+
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+
 });
 
 module.exports = mongoose.model("Question", questionSchema);

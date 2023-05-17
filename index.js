@@ -1,12 +1,26 @@
 const express = require("express");
-require("dotenv").config();
+require("dotenv").config()
+const dbUtils = require("./dbutils/dbutil");
 const app = express();
+const question_router = require("./routes/question_route");
+const auth_router = require("./routes/auth_route");
+const PORT = process.env.PORT || 3000;
 app.use(express.json());
-const PORT = process.env.PORT;
-const dbutil = require("./dbutils/dbutil");
-dbutil.initDB();
-// const userRoute = require("./routes/user_route");
-const questionRouter = require("./routes/question_route");
+dbUtils.initDB();
+
+
+app.use("/question", question_router);
+app.use("/user", auth_router);
+
+app.use("/", () => {
+  console.log("hello world");
+});
+
+process.on("SIGINT", () => {
+  dbUtils.disconnectDB();
+  console.log("Closing server");
+  process.exit();
+});
 
 // app.use("/user", userRoute);
 app.use("/question", questionRouter);
