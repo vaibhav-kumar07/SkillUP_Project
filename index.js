@@ -1,5 +1,5 @@
 const express = require("express");
-require("dotenv").config();
+require("dotenv").config()
 const dbUtils = require("./dbutils/dbutil");
 const app = express();
 const question_router = require("./routes/question_route");
@@ -22,10 +22,11 @@ process.on("SIGINT", () => {
   process.exit();
 });
 
-process.on("exit", () => {
-  console.log("Server closed");
+// app.use("/user", userRoute);
+app.use("/question", questionRouter);
+app.get("/", (req, res) => {
+  res.status(200).send("hello world,I hope all are healthy & wealthy");
 });
-
 app.listen(PORT, () => {
-  console.log("Server is running on port ", PORT);
+  console.log(`server is running on ${PORT}`);
 });

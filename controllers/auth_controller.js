@@ -1,9 +1,11 @@
+
 const authService = require("../services/auth_service");
 const userService = require("../services/user_service");
 const createUser = async function (req, res) {
   try {
     console.log("In auth controller");
     const { userName, email, password, role, phoneNumber } = req.body;
+
 
     let id = await auth_service.createNewUser({
       userName,
@@ -17,6 +19,7 @@ const createUser = async function (req, res) {
     res.status(400).send({ message: error.message });
   }
 };
+
 
 const userLogin = async function (req, res) {
   try {
@@ -55,3 +58,4 @@ const UserloginViaToken = async function (req, res) {
 };
 
 module.exports = { createUser, userLogin, UserloginViaToken };
+
