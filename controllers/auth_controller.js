@@ -4,7 +4,8 @@ const createUser = async function (req, res) {
   try {
     console.log("In auth controller");
     const { userName, email, password, role, phoneNumber } = req.body;
-    let id = await authService.createNewUser({
+
+    let id = await auth_service.createNewUser({
       userName,
       email,
       password,

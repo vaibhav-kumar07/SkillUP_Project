@@ -18,12 +18,14 @@ POST {{baseUrl}}/user/login
 Content-Type: application/json
 
 {
+
     "password":"1234567",
     "email":"ankit@gmail123456789.com",
     "otp":741363
+
 }
 
 ### login via token ###
 ###
 POST {{baseUrl}}/user/login/token
-Authorization: bearer eyJhbGciOiJIUzI1NiJ9.YW5raXRAZ21haWwxMjM0NTY3ODkuY29t.WyLz8dcX0E6Vw3h940FJTJymqG6SqalCdPKkG3JrBY4
+Authorization: bearer 
